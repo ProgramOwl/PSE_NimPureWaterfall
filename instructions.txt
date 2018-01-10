@@ -1,0 +1,4 @@
+The game of Nim is set up by having an x number of rows filled with an x number of matches.
+On a players turn the player will choose a row and remove an x number of matches from that row.
+A player cannot remove matches from multiple rows and cannot remove more than what in the chosen row.
+The player to remove the last match standing loses.
