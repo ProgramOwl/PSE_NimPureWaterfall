@@ -1,6 +1,6 @@
 var gameIsOver = false;
 var isPlayer1Turn = true;
-var isPlayerVsComputer = false;
+var isPlayerVsComputer = true;
 var player1Name = "Player 1";
 var player2Name = "Player 2";
 var currentColumn = -1;
@@ -13,8 +13,9 @@ function RowOnePressed(){
         document.getElementById('btnRow4').disabled = true;
         document.getElementById('btnEndTurn').disabled = false; 
         var matches = GetMatches(1);
-        matches[0].style.visibility = hidden;
-        matches.splice(0,1);
+        if(matches.children.length > 0) {
+            matches.removeChild(matches.children[0]);
+        }
     }
 }
 
@@ -26,8 +27,9 @@ function RowTwoPressed(){
         document.getElementById('btnRow4').disabled = true;
         document.getElementById('btnEndTurn').disabled = false; 
         var matches = GetMatches(2);
-        matches[0].style.visibility = hidden;
-        matches.splice(0,1);
+        if(matches.children.length > 0) {
+            matches.removeChild(matches.children[0]);
+        }
     }
 }
 
@@ -39,8 +41,9 @@ function RowThreePressed(){
         document.getElementById('btnRow4').disabled = true;
         document.getElementById('btnEndTurn').disabled = false; 
         var matches = GetMatches(3);
-        matches[0].style.visibility = hidden;
-        matches.splice(0,1);
+        if(matches.children.length > 0) {
+            matches.removeChild(matches.children[0]);
+        }
     }
 }
 
@@ -52,21 +55,26 @@ function RowFourPressed(){
         document.getElementById('btnRow1').disabled = true;
         document.getElementById('btnEndTurn').disabled = false; 
         var matches = GetMatches(4);
-        matches[0].style.visibility = hidden;
-        matches.splice(0,1);
+        if(matches.children.length > 0) {
+            matches.removeChild(matches.children[0]);
+        }
     }
 }
 
 function EndTurnPressed(){
-    document.getElementById('btnEndTurn').disabled = true;
-    currentColumn = -1;
-    if(!gameIsOver()){
+    if(!CheckGameOver()){
+        console.log("ispvc",isPlayerVsComputer);
+        document.getElementById('btnEndTurn').disabled = true;
+        document.getElementById('btnRow1').disabled = GetMatches(1).children.length > 0 ? false : true;
+        document.getElementById('btnRow2').disabled = GetMatches(2).children.length > 0 ? false : true;
+        document.getElementById('btnRow3').disabled = GetMatches(3).children.length > 0 ? false : true;
+        document.getElementById('btnRow4').disabled = GetMatches(4).children.length > 0 ? false : true;
+        currentColumn = -1;
         if(isPlayerVsComputer){
             document.getElementById('lblTurn').innerHTML = "Computer's Turn.";
             TakeComputerTurn();
-            document.getElementById('lblTurn').innerHTML = player1Name + "'s turn.";
         } else {
-            if(isPlayer1Turn)
+            if(!isPlayer1Turn)
                 document.getElementById('lblTurn').innerHTML = player1Name + "'s turn.";
             else
                 document.getElementById('lblTurn').innerHTML = player2Name + "'s turn.";
@@ -78,38 +86,51 @@ function EndTurnPressed(){
 }
 
 function GetMatches(row){ //finished
-    return document.getElementById('row' + row).children;
+    return document.getElementById('row' + row);
 }
 
 function TakeComputerTurn(){
     var row = FindRandomValidRow();
-    row[0].style.visibility = hidden;
-    row.splice(0,1);
+    if(row.children.length > 0) {
+        row.removeChild(row.children[0]);
+    }
+    if(!CheckGameOver()){
+        document.getElementById('lblTurn').innerHTML = player1Name + "'s turn.";
+    } else {
+        document.getElementById('lblTurn').innerHTML = "Computer Wins.";
+    }
 }
 
 function FindRandomValidRow(){
     var validChoice = false;
     var row;
     while(!validChoice) {
-        var num = Math.floor(Math.random() * Math.floor(4));
+        var num = Math.floor(Math.random() * Math.floor(4)) + 1;
+        console.log("num",num);
         row = GetMatches(num);
-        if (row.length > 0) {
-            validChoice = true;
+        console.log("row",row);
+        if(row != null){
+            if(row.children != null) {
+                if (row.children.length > 0) {
+                    validChoice = true;
+                }
+            }
         }
     }
     return row;
 }
 
 function CheckGameOver(){
-    return GetMatches(1).length == 0 &&
-           GetMatches(2).length == 0 &&
-           GetMatches(3).length == 0 &&
-           GetMatches(4).length == 0;
+    return GetMatches(1).Children == undefined &&
+           GetMatches(2).Children == undefined &&
+           GetMatches(3).Children == undefined &&
+           GetMatches(4).Children == undefined;
 }
 
 function SetUpGame(){
     //set player 1 & 2's names, change computer bool
     document.getElementById('lblTurn').innerHTML = player1Name + "'s turn.";
+    document.getElementById('btnEndTurn').disabled = true; 
 }
 
 function ConvertLinkToName(link) {
