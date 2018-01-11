@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 html{
   font-family: 'Lato', sans-serif;
   font-size: 18px;
@@ -48,3 +49,73 @@ button{
   border: 2px solid #000;
   display: inline-block;
 }
+=======
+html{
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+  background-color: #1C2321;
+  text-align: center;
+}
+button{
+  font-family: 'Lato', sans-serif;
+  font-size: 18px;
+}
+#mainPanel{
+  display: inline-block;
+  margin-top: 50px;
+}
+#easyGamePanel{
+  height: 350px;
+  width: 675px;
+}
+#mediumGamePanel{
+  height: 425px;
+  width: 675px;
+}
+#hardGamePanel{
+  height: 515px;
+  width: 675px;
+}
+#playArea{
+  margin-top: 75px;
+}
+.panel{
+  background-color: #5E6572;
+  border: 3px solid #FFFDFC;
+  border-radius: 6px;
+}
+#rows{
+  width: 475px;
+  float: left;
+  margin-left: 5px;
+}
+#btnEndTurn{
+  position: absolute;
+  top: 125px;
+  left: 925px;
+}
+.row{
+  margin-top:10px;
+}
+#turnDisplay{
+  padding: 10px;
+  font-size: 24px;
+  background-color: #A9B4C2;
+  margin-bottom: 6px;
+  border-bottom: 3px solid #FFFDFC;
+}
+
+.btnContainer{
+  height: 75px;
+  line-height: 75px;
+  vertical-align: center;
+  margin-top: 25px;
+}
+.match{
+  width: 45px;
+  height: 75px;
+  background-color: #4392F1;
+  border: 2px solid #000;
+  display: inline-block;
+}
+>>>>>>> Stashed changes
