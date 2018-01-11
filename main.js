@@ -1,7 +1,7 @@
 
 var gameIsOver = false;
 var isPlayer1Turn = true;
-var isPlayerVsComputer = true;
+var isPlayerVsComputer = false;
 var player1Name = "Player 1";
 var player2Name = "Player 2";
 var currentColumn = -1;
@@ -82,7 +82,10 @@ function EndTurnPressed(){
             isPlayer1Turn = isPlayer1Turn ? false : true;
         }
     } else {
-        document.getElementById('lblTurn').innerHTML = isPlayer1Turn ? player2Name + "Wins!" : player1Name + "Wins!";
+        if(isPlayerVsComputer)
+            document.getElementById('lblTurn').innerHTML = "Computer Wins.";
+        else
+            document.getElementById('lblTurn').innerHTML = isPlayer1Turn ? player2Name + " Wins!" : player1Name + "Wins!";
     }
 }
 
@@ -98,7 +101,12 @@ function TakeComputerTurn(){
     if(!CheckGameOver()){
         document.getElementById('lblTurn').innerHTML = player1Name + "'s turn.";
     } else {
-        document.getElementById('lblTurn').innerHTML = "Computer Wins.";
+        document.getElementById('lblTurn').innerHTML = player1Name + " Wins!";
+        document.getElementById('btnEndTurn').disabled = true;
+        document.getElementById('btnRow1').disabled = GetMatches(1).children.length > 0 ? false : true;
+        document.getElementById('btnRow2').disabled = GetMatches(2).children.length > 0 ? false : true;
+        document.getElementById('btnRow3').disabled = GetMatches(3).children.length > 0 ? false : true;
+        document.getElementById('btnRow4').disabled = GetMatches(4).children.length > 0 ? false : true;
     }
 }
 
@@ -122,10 +130,10 @@ function FindRandomValidRow(){
 }
 
 function CheckGameOver(){
-    return GetMatches(1).Children == undefined &&
-           GetMatches(2).Children == undefined &&
-           GetMatches(3).Children == undefined &&
-           GetMatches(4).Children == undefined;
+    return GetMatches(1).children.length == 0 &&
+           GetMatches(2).children.length == 0 &&
+           GetMatches(3).children.length == 0 &&
+           GetMatches(4).children.length == 0;
 }
 
 function SetUpGame(){
@@ -156,4 +164,5 @@ function RetriveFormData() {
     var x = getUrlVars();
 	console.log("x: ", x);
 }
+SetUpGame();
 //RetriveFormData();
