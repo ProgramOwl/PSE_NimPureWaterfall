@@ -1,3 +1,4 @@
+
 var gameIsOver = false;
 var isPlayer1Turn = true;
 var isPlayerVsComputer = true;
@@ -132,7 +133,6 @@ function SetUpGame(){
     document.getElementById('lblTurn').innerHTML = player1Name + "'s turn.";
     document.getElementById('btnEndTurn').disabled = true; 
 }
-
 function ConvertLinkToName(link) {
 	//It returns the symbol from the hex value preceded by a %.
 	var tempS="";
@@ -156,5 +156,4 @@ function RetriveFormData() {
     var x = getUrlVars();
 	console.log("x: ", x);
 }
-SetUpGame();
 //RetriveFormData();

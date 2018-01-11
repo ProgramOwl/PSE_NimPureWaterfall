@@ -1,17 +1,16 @@
 <!Doctype html>
 <html>
   <head>
-
   </head>
-  <body>
+	<body>
     <h1>Welcome to the Game of Nim</h1>
-    <form name="myForm" onsubmit="return validate()" method="post">
+    <form name="myForm" onsubmit="return onSubmit()" method="post">
       <div id="gameType_Selection">
         <p><input type="radio" name="gameType" id="gameType_PvP" value="PvP"/> PvP</p>
         <p><input type="radio" name="gameType" id="gameType_PvC" value="PvC"/> PvC</p>
       </div>
-      <p>Player 1 Name: <input type="text" placeholder="Player 1" id="p1Name"/></p>
-      <p>Player 2 Name: <input type="text" placeholder="Player 2" id="p2Name"/></p>
+      <p>Player 1 Name: <input type="text" placeholder="Player 1" id="player1Name"/></p>
+      <p id="player2">Player 2 Name: <input type="text" placeholder="Player 2" id="player2Name"/></p>
       <p>Difficulty: <select id="categories">
           <option value="Easy">Easy</option>
           <option value="Medium">Medium</option>
@@ -23,5 +22,5 @@
     <div>
       <button type="button">?</button>
     </div>
-  </body>
+	</body>
 </html>
