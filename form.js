@@ -3,12 +3,12 @@ function gameTypeChosen() {
 	document.getElementById("gameType_PvP").onclick = function () {//make second text box visible
 		//document.getElementById("player2").style.visibility = "visible";		
 		document.getElementById("player2").style.display = "block";
-		console.log("visible");
+		//console.log("visible");
 	};
 	document.getElementById("gameType_PvC").onclick = function () {//make second text box invisible
 		//document.getElementById("player2").style.visibility = "collapse";		
 		document.getElementById("player2").style.display = "none";
-		console.log("hidden");
+		//console.log("hidden");
 	};
 	document.getElementById("player2").style.display = "none";
 }
@@ -36,8 +36,7 @@ function ConvertNameToLink(name) {
 		//return String.fromCharCode(parseInt(n.substring(1), 16));
 		return "%" + ((n.charCodeAt(0)).toString(16));
     });
-	tempS = tempS.replace(/\s{1,}/g, ' ');
-	name = tempS.replace(' ', '+');
+	name = tempS.replace(/\s{1,}/g, '+');
 	//console.log(name);
 	return name;
 }
@@ -55,21 +54,22 @@ function onSubmit() {
     }
 	
     linkS = linkS + "&p1=" + ConvertNameToLink(name1) + "&p2=" + ConvertNameToLink(name2);
-    //directToGame(linkS);
+    directToGame(linkS);
+	return false;
 }
 
 function directToGame(linkAddress) {
     var diff = document.getElementById("categories").value;
 	console.log("diff: ", diff);
     if (diff === "Easy") {
-     //window.location = "/easy"+linkAddress;
-		console.log("Easy");
+     window.location = "easy.html"+linkAddress;
+		//console.log("Easy:",linkAddress);
     } else if (diff === "Medium") {
-     //window.location = "/medium"+linkAddress;		
-		console.log("Medium");
+     window.location = "medium.html"+linkAddress;		
+		//console.log("Medium:",linkAddress);
     } else if (diff === "Hard") {
-     //window.location = "/hard"+linkAddress;
-		console.log("Hard");
+     window.location = "hard.html"+linkAddress;
+		//console.log("Hard:",linkAddress);
     }
 }
 
