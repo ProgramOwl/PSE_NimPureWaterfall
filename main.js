@@ -135,4 +135,5 @@ function RetriveFormData() {
     var x = getUrlVars();
 	console.log("x: ", x);
 }
+SetUpGame();
 //RetriveFormData();
