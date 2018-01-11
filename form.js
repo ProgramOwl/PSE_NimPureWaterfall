@@ -1,6 +1,5 @@
 //Radio Listeners
-function gameTypeChosen() {
-	
+function gameTypeChosen() {	
 	document.getElementById("gameType_PvP").addEventListener("onclick", function () {//make second text box visible
 		document.getElementById("player2").style.visibility = "block";
 	});
@@ -68,3 +67,5 @@ function directToGame(linkAddress) {
 		console.log("Hard");
     }
 }
+
+window.onload = gameTypeChosen();
