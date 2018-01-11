@@ -1,10 +1,13 @@
 //Radio Listeners
-document.getElementById("gameType_PvP").addEventListener("onclick", function () {//make second text box visible
-    document.getElementsByName("player2").style.visibility = "block";
-});
-document.getElementById("gameType_PvC").addEventListener("check", function () {//make second text box invisible
-    document.getElementsByName("player2").style.visibility = "hidden";
-});
+function gameTypeChosen() {
+	
+	document.getElementById("gameType_PvP").addEventListener("onclick", function () {//make second text box visible
+		document.getElementById("player2").style.visibility = "block";
+	});
+	document.getElementById("gameType_PvC").addEventListener("check", function () {//make second text box invisible
+		document.getElementById("player2").style.visibility = "hidden";
+	});
+}
 //variables
 var name1, name2, isPvP, linkS;
 //Checks
@@ -52,7 +55,7 @@ function onSubmit() {
 }
 
 function directToGame(linkAddress) {
-    var diff = document.getElementById("difficulty").value;
+    var diff = document.getElementById("categories").value;
 	console.log("diff: ", diff);
     if (diff === "Easy") {
      //window.location = "/easy"+linkAddress;
