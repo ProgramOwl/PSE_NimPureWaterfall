@@ -1,11 +1,16 @@
 //Radio Listeners
 function gameTypeChosen() {	
-	document.getElementById("gameType_PvP").addEventListener("onclick", function () {//make second text box visible
-		document.getElementById("player2").style.visibility = "block";
-	});
-	document.getElementById("gameType_PvC").addEventListener("check", function () {//make second text box invisible
-		document.getElementById("player2").style.visibility = "hidden";
-	});
+	document.getElementById("gameType_PvP").onclick = function () {//make second text box visible
+		//document.getElementById("player2").style.visibility = "visible";		
+		document.getElementById("player2").style.display = "block";
+		console.log("visible");
+	};
+	document.getElementById("gameType_PvC").onclick = function () {//make second text box invisible
+		//document.getElementById("player2").style.visibility = "collapse";		
+		document.getElementById("player2").style.display = "none";
+		console.log("hidden");
+	};
+	document.getElementById("player2").style.display = "none";
 }
 //variables
 var name1, name2, isPvP, linkS;
@@ -68,4 +73,4 @@ function directToGame(linkAddress) {
     }
 }
 
-window.onload = gameTypeChosen();
+window.addEventListener("onload",gameTypeChosen());
