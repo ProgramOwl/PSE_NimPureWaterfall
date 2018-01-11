@@ -10,40 +10,22 @@ button{
 }
 #mainPanel{
   display: inline-block;
-  margin-top: 50px;
 }
-#easyGamePanel{
-  height: 350px;
-  width: 675px;
-}
-#mediumGamePanel{
-  height: 425px;
-  width: 675px;
-}
-#hardGamePanel{
-  height: 515px;
-  width: 675px;
-}
-#playArea{
-  margin-top: 75px;
-}
-.panel{
+#gamePanel{
   background-color: #5E6572;
+  height: 600px;
+  width: 675px;
   border: 3px solid #FFFDFC;
   border-radius: 6px;
 }
 #rows{
   width: 475px;
   float: left;
-  margin-left: 5px;
 }
 #btnEndTurn{
   position: absolute;
-  top: 125px;
+  top: 550px;
   left: 925px;
-}
-.row{
-  margin-top:10px;
 }
 #turnDisplay{
   padding: 10px;
@@ -57,21 +39,7 @@ button{
   height: 75px;
   line-height: 75px;
   vertical-align: center;
-  margin-top: 25px;
-}
-.match{
-  width: 45px;
-  height: 75px;
-  background-color: #4392F1;
-  border: 2px solid #000;
-  display: inline-block;
-}
-
-.btnContainer{
-  height: 75px;
-  line-height: 75px;
-  vertical-align: center;
-  margin-top: 25px;
+  margin-top: 5px;
 }
 .match{
   width: 45px;

@@ -136,33 +136,43 @@ function CheckGameOver(){
            GetMatches(4).children.length == 0;
 }
 
-function SetUpGame(){
-    //set player 1 & 2's names, change computer bool
-    document.getElementById('lblTurn').innerHTML = player1Name + "'s turn.";
-    document.getElementById('btnEndTurn').disabled = true; 
-}
 function ConvertLinkToName(link) {
 	//It returns the symbol from the hex value preceded by a %.
 	var tempS="";
-	tempS = link.replace('+', ' ');
-	link = tempS.replace(/([%][0-9a-zA-Z][0-9a-zA-Z])/gi, function (n){
+	tempS = link.replace(/[+]{1,}/g, ' ');
+	link = tempS.replace(/([%][0-9a-z][0-9a-z])/gi, function (n){
 		return String.fromCharCode(parseInt(n.substring(1), 16));
     });
 	//console.log(link);
 	return link;
 }
-function getUrlVars() {
-    var vars = {},
+
+function SetUpGame(){
+    //set player 1 & 2's names, change computer bool
+	var vars = {},
         parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (n, key, value) {
 			value = ConvertLinkToName(value);
             vars[key] = value;
         });
-	console.log("var: ", vars);
-	return vars;
+	//console.log("var: ", vars);
+	isPlayerVsComputer = (vars["c"]=="t");
+	player1Name = vars["p1"];
+	player2Name = vars["p2"];
+	//console.log(isPlayerVsComputer,player1Name,player2Name);
+	//RetriveUrlData();
+    document.getElementById('lblTurn').innerHTML = player1Name + "'s turn.";
+    document.getElementById('btnEndTurn').disabled = true; 
 }
-function RetriveFormData() {
-    var x = getUrlVars();
-	console.log("x: ", x);
-}
+/*function RetriveUrlData(){
+	var vars = {},
+        parts = window.location.href.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (n, key, value) {
+			value = ConvertLinkToName(value);
+            vars[key] = value;
+        });
+	//console.log("var: ", vars);
+	isPlayerVsComputer = (vars["c"]=="t");
+	player1Name = vars["p1"];
+	player2Name = vars["p2"];
+	//console.log(isPlayerVsComputer,player1Name,player2Name);
+}*/
 SetUpGame();
-//RetriveFormData();
