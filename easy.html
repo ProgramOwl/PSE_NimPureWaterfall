@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link href='style.css' rel='stylesheet'>
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+</head>
+
+<body>
+  <div id='mainPanel'>
+    <div id='gamePanel'>
+      <div id='turnDisplay'>
+        <label id='lblTurn'>Player turn here...</label>
+      </div>
+      <div id='playArea'>
+        <div id='rows'>
+          <div id='row1' class='row'>
+            <div class='match'></div>
+            <div class='match'></div>
+            <div class='match'></div>
+          </div>
+          <div id='row2' class='row'>
+            <div class='match'></div>
+            <div class='match'></div>
+            <div class='match'></div>
+          </div>
+        </div>
+        <div id='buttons'>
+          <div id='rowButtons'>
+            <div class='btnContainer'>
+              <button id='btnRow1'>Row 1</button>
+            </div>
+            <div class='btnContainer'>
+              <button id='btnRow2'>Row 2</button>
+            </div>
+          </div>
+          <button id='btnEndTurn'>End turn</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src='main.js'></script>
+</body>
+</html>
