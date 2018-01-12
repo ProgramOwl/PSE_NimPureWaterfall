@@ -86,8 +86,6 @@ function EndTurnPressed(){
 		isPlayer1Turn = !isPlayer1Turn;
 	document.getElementById('btnEndTurn').style.display = "none";
     //if(!CheckGameOver()){
-        console.log("ispvc: ",isPlayerVsComputer);
-		console.log("isPlayer1Turn: ",isPlayer1Turn);
         document.getElementById('btnEndTurn').disabled = true;
         
         document.getElementById('btnRow1').disabled = GetMatches(1).children.length > 1 ? false : true;
@@ -121,7 +119,6 @@ function TakeComputerTurn(){
     var row = FindRandomValidRow();
     if(row.children.length > 1) {
 		var amount = Math.floor(Math.random()*(row.children.length-2))+1;
-		console.log("Amount = ", amount);
 		for(var i=0; i<amount; i++){
         	row.removeChild(row.children[0]);
 		}
@@ -143,9 +140,7 @@ function FindRandomValidRow(){
     var row;
     while(!validChoice) {
         var num = Math.floor(Math.random() *expected) + 1;
-        console.log("num",num);
         row = GetMatches(num);
-        console.log("row",row);
         if(row != null){
             if(row.children != null) {
                 if (row.children.length > 1) {
@@ -170,7 +165,6 @@ function CheckGameOver(){
 	total +=GetMatches(4).children.length;
 			expected=4;
 		}
-	console.log("total:", total,", expected:", expected);
 	if(total === expected){
 		document.getElementById('lblTurn').innerHTML = isPlayer1Turn ? player2Name + " Wins!" : player1Name + " Wins!";
         document.getElementById('btnRow1').disabled = true;

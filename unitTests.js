@@ -1,4 +1,5 @@
 function UTRowOneClickedDisablesButtons(){
+    Reset();
     RowOnePressed();
 
     if(document.getElementById('btnRow2').disabled == true &&
@@ -10,14 +11,18 @@ function UTRowOneClickedDisablesButtons(){
         DisplayResult(false,"UTRowOneClickedDisablesButtons");
     }
 }
+UTRowOneClickedDisablesButtons();
 function UTRowOneClickedSetsCurrentColumn(){
+    Reset();
     RowOnePressed();
     if(currentColumn == 1)
         DisplayResult(true,"UTRowOneClickedSetsCurrentColumn");
     else
         DisplayResult(false,"UTRowOneClickedSetsCurrentColumn");
 }
+UTRowOneClickedSetsCurrentColumn();
 function UTRowOneClickedRemovesAChild(){
+    Reset();
     var initalLength = GetMatches(1).children.length;
     RowOnePressed();
     var endLength = GetMatches(1).children.length;
@@ -26,9 +31,10 @@ function UTRowOneClickedRemovesAChild(){
     else
         DisplayResult(false,"UTRowOneClickedRemovesAChild");
 }
+UTRowOneClickedRemovesAChild();
 function UTRowTwoClickedDisablesButtons(){
+    Reset();
     RowTwoPressed();
-    
     if(document.getElementById('btnRow1').disabled == true &&
         document.getElementById('btnRow3').disabled == true &&
         document.getElementById('btnRow4').disabled == true &&
@@ -38,14 +44,18 @@ function UTRowTwoClickedDisablesButtons(){
         DisplayResult(false,"UTRowTwoClickedDisablesButtons");
     }
 }
+UTRowTwoClickedDisablesButtons();
 function UTRowTwoClickedSetsCurrentColumn(){
+    Reset();
     RowTwoPressed();
     if(currentColumn == 2)
         DisplayResult(true,"UTRowTwoClickedSetsCurrentColumn");
     else
         DisplayResult(false,"UTRowTwoClickedSetsCurrentColumn");
 }
+UTRowTwoClickedSetsCurrentColumn();
 function UTRowTwoClickedRemovesAChild(){
+    Reset();
     var initalLength = GetMatches(2).children.length;
     RowTwoPressed();
     var endLength = GetMatches(2).children.length;
@@ -54,9 +64,10 @@ function UTRowTwoClickedRemovesAChild(){
     else
         DisplayResult(false,"UTRowTwoClickedRemovesAChild");
 }
+UTRowTwoClickedRemovesAChild();
 function UTRowThreeClickedDisablesButtons(){
+    Reset();
     RowThreePressed();
-    
     if(document.getElementById('btnRow1').disabled == true &&
         document.getElementById('btnRow2').disabled == true &&
         document.getElementById('btnRow4').disabled == true &&
@@ -66,14 +77,18 @@ function UTRowThreeClickedDisablesButtons(){
         DisplayResult(false,"UTRowThreeClickedDisablesButtons");
     }
 }
+UTRowThreeClickedDisablesButtons();
 function UTRowThreeClickedSetsCurrentColumn(){
+    Reset();
     RowThreePressed();
     if(currentColumn == 3)
         DisplayResult(true,"UTRowThreeClickedSetsCurrentColumn");
     else
         DisplayResult(false,"UTRowThreeClickedSetsCurrentColumn");
 }
+UTRowThreeClickedSetsCurrentColumn();
 function UTRowThreeClickedRemovesAChild(){
+    Reset();
     var initalLength = GetMatches(3).children.length;
     RowThreePressed();
     var endLength = GetMatches(3).children.length;
@@ -82,9 +97,10 @@ function UTRowThreeClickedRemovesAChild(){
     else
         DisplayResult(false,"UTRowThreeClickedRemovesAChild");
 }
+UTRowThreeClickedRemovesAChild();
 function UTRowFourClickedDisablesButtons(){
+    Reset();
     RowFourPressed();
-    
     if(document.getElementById('btnRow1').disabled == true &&
         document.getElementById('btnRow2').disabled == true &&
         document.getElementById('btnRow3').disabled == true &&
@@ -94,14 +110,18 @@ function UTRowFourClickedDisablesButtons(){
         DisplayResult(false,"UTRowFourClickedDisablesButtons");
     }
 }
+UTRowFourClickedDisablesButtons();
 function UTRowFourClickedSetsCurrentColumn(){
+    Reset();
     RowFourPressed();
     if(currentColumn == 4)
         DisplayResult(true,"UTRowFourClickedSetsCurrentColumn");
     else
         DisplayResult(false,"UTRowFourClickedSetsCurrentColumn");
 }
+UTRowFourClickedSetsCurrentColumn();
 function UTRowFourClickedRemovesAChild(){
+    Reset();
     var initalLength = GetMatches(4).children.length;
     RowFourPressed();
     var endLength = GetMatches(4).children.length;
@@ -110,70 +130,83 @@ function UTRowFourClickedRemovesAChild(){
     else
         DisplayResult(false,"UTRowFourClickedRemovesAChild");
 }
+UTRowFourClickedRemovesAChild();
 function UTEndTurnButtonWithComputerAndComputerWins(){
+    Reset();
     isPlayerVsComputer = true;
     isPlayer1Turn = true;
     RemoveAllMatches();
-    EndTurnPressed();
+    CheckGameOver();
     if(document.getElementById("lblTurn").innerText == player2Name + " Wins!")
         DisplayResult(true,"UTEndTurnButtonWithComputerAndComputerWins");
     else
         DisplayResult(false,"UTEndTurnButtonWithComputerAndComputerWins");
 }
+UTEndTurnButtonWithComputerAndComputerWins();
 function UTEndTurnButtonWithComputerAndPlayerWins(){
+    Reset();
     isPlayerVsComputer = true;
-    isPlayer1Turn = true;
-    RemoveAllBut1Matches();
-    EndTurnPressed();
+    isPlayer1Turn = false;
+    RemoveAllMatches();
+    CheckGameOver();
     if(document.getElementById("lblTurn").innerText == player1Name + " Wins!")
         DisplayResult(true,"UTEndTurnButtonWithComputerAndPlayerWins");
     else
         DisplayResult(false,"UTEndTurnButtonWithComputerAndPlayerWins");
 }
+UTEndTurnButtonWithComputerAndPlayerWins();
 function UTEndTurnButtonWithComputerAndNoOneWins(){
+    Reset();
     isPlayerVsComputer = true;
     isPlayer1Turn = true;
-    var beginMatchCount = GetMatchCount();
-    EndTurnPressed();
-    var endMatchCount = GetMatchCount();
-    if(endMatchCount < beginMatchCount)
+    document.getElementById("lblTurn").innerText = player1Name + "'s Turn";
+    CheckGameOver();
+    if(document.getElementById("lblTurn").innerText == player1Name + "'s Turn")
         DisplayResult(true,"UTEndTurnButtonWithComputerAndNoOneWins");
     else
         DisplayResult(false,"UTEndTurnButtonWithComputerAndNoOneWins");
 }
+UTEndTurnButtonWithComputerAndNoOneWins();
 function UTEndTurnButtonWithPlayerAndPlayer1Wins(){
+    Reset();
     isPlayerVsComputer = false;
     isPlayer1Turn = false;
-    RemoveAllBut1Matches();
-    EndTurnPressed();
+    RemoveAllMatches();
+    CheckGameOver();
     if(document.getElementById("lblTurn").innerText == player1Name + " Wins!")
         DisplayResult(true,"UTEndTurnButtonWithPlayerAndPlayer1Wins");
     else
         DisplayResult(false,"UTEndTurnButtonWithPlayerAndPlayer1Wins");
 }
+UTEndTurnButtonWithPlayerAndPlayer1Wins();
 function UTEndTurnButtonWithPlayerAndPlayer2Wins(){
+    Reset();
     isPlayerVsComputer = false;
     isPlayer1Turn = true;
-    RemoveAllBut1Matches();
-    EndTurnPressed();
+    RemoveAllMatches();
+    CheckGameOver();
     if(document.getElementById("lblTurn").innerText == player2Name + " Wins!")
         DisplayResult(true,"UTEndTurnButtonWithPlayerAndPlayer2Wins");
     else
         DisplayResult(false,"UTEndTurnButtonWithPlayerAndPlayer2Wins");
 }
+UTEndTurnButtonWithPlayerAndPlayer2Wins();
 function UTEndTurnButtonWithPlayerAndNoOneWins(){
+    Reset();
     isPlayerVsComputer = false;
     isPlayer1Turn = true;
     var beginMatchCount = GetMatchCount();
-    document.getElementById("row2").removeChild(document.getElementById("row1").children[0]);
-    EndTurnPressed();
+    document.getElementById("row2").removeChild(document.getElementById("row2").children[0]);
+    CheckGameOver();
     var endMatchCount = GetMatchCount();
     if(endMatchCount < beginMatchCount)
         DisplayResult(true,"UTEndTurnButtonWithPlayerAndNoOneWins");
     else
         DisplayResult(false,"UTEndTurnButtonWithPlayerAndNoOneWins");
 }
+UTEndTurnButtonWithPlayerAndNoOneWins();
 function UTEndTurnButtonWithPlayerBeingSwitched(){
+    Reset();
     isPlayerVsComputer = false;
     isPlayer1Turn = true;
     document.getElementById("lblTurn").innerText = player1Name + "'s Turn";
@@ -183,14 +216,18 @@ function UTEndTurnButtonWithPlayerBeingSwitched(){
     else
         DisplayResult(false,"UTEndTurnButtonWithPlayerBeingSwitched");
 }
+UTEndTurnButtonWithPlayerBeingSwitched();
 function UTGetMatchesWithValidRow(){
+    Reset();
     var row = GetMatches(2);
     if(row.children.length > 1)
         DisplayResult(true,"UTGetMatchesWithValidRow");
     else
         DisplayResult(false,"UTGetMatchesWithValidRow");
 }
+UTGetMatchesWithValidRow();
 function UTGetMatchesWithInvalidRow(){
+    Reset();
     RemoveAllMatches();
     var row = GetMatches(1);
     if(row.children.length == 1)
@@ -198,7 +235,9 @@ function UTGetMatchesWithInvalidRow(){
     else
         DisplayResult(false,"UTGetMatchesWithInvalidRow");
 }
+UTGetMatchesWithInvalidRow();
 function UTComputerTurnOneChildRemoved(){
+    Reset();
     isPlayerVsComputer = true;
     isPlayer1Turn = false;
     var beginMatchCount = GetMatchCount();
@@ -209,36 +248,18 @@ function UTComputerTurnOneChildRemoved(){
     else
         DisplayResult(false,"UTComputerTurnOneChildRemoved");
 }
-function UTComputerTurnDisabledButtons(){
-    isPlayerVsComputer = true;
-    isPlayer1Turn = false;
-    TakeComputerTurn();
-    var disabledCorrectly = document.getElementById('btnRow1').disabled &&
-                    document.getElementById('btnRow2').disabled;
-    
-    if(document.getElementById('btnRow3')){
-        if(!document.getElementById('btnRow3').disabled) {
-            disabledCorrectly = false;
-        }
-    }
-    if(document.getElementById('btnRow4')){
-        if(!document.getElementById('btnRow4').disabled) {
-            disabledCorrectly = false;
-        }
-    }    
-    if(disabledCorrectly)
-        DisplayResult(true,"UTComputerTurnDisabledButtons");
-    else
-        DisplayResult(false,"UTComputerTurnDisabledButtons");
-}
+UTComputerTurnOneChildRemoved();
 function UTFindRandomValidRowReturnsValidRow(){
+    Reset();
     var row = FindRandomValidRow();
     if(row != undefined)
         DisplayResult(true,"UTFindRandomValidRowReturnsValidRow");
     else
         DisplayResult(false,"UTFindRandomValidRowReturnsValidRow");
 }
+UTFindRandomValidRowReturnsValidRow();
 function UTCheckGameOverWithGameOver(){
+    Reset();
     RemoveAllMatches();
     var isGameOver = CheckGameOver();
     if(isGameOver)
@@ -246,13 +267,18 @@ function UTCheckGameOverWithGameOver(){
     else
         DisplayResult(false,"UTCheckGameOverWithGameOver");
 }
+UTCheckGameOverWithGameOver();
 function UTCheckGameOverWithNoGameOver(){
+    Reset();
     var isGameOver = CheckGameOver();
     if(!isGameOver)
         DisplayResult(true,"UTCheckGameOverWithNoGameOver");
     else
         DisplayResult(false,"UTCheckGameOverWithNoGameOver");
 }
+UTCheckGameOverWithNoGameOver();
+
+// UNIT TEST HELPER FUNCTIONS \\
 function DisplayResult(pass,functionName){
     if(pass)
         console.log("[PASSED] " + functionName);
@@ -260,14 +286,19 @@ function DisplayResult(pass,functionName){
         console.log("[FAILED] " + functionName);
 }
 function RemoveAllBut1Matches(){
-    document.getElementById("row2").removeChild(document.getElementById("row1").children[0]);
-    document.getElementById("row2").removeChild(document.getElementById("row1").children[0]);
-    document.getElementById("row2").removeChild(document.getElementById("row1").children[0]);
-    document.getElementById("row3").removeChild(document.getElementById("row1").children[0]);
-    document.getElementById("row3").removeChild(document.getElementById("row1").children[0]);
-    document.getElementById("row3").removeChild(document.getElementById("row1").children[0]);
-    document.getElementById("row3").removeChild(document.getElementById("row1").children[0]);
-    document.getElementById("row3").removeChild(document.getElementById("row1").children[0]);
+    document.getElementById("row1").removeChild(document.getElementById("row1").children[0]);
+    for(var i = 0;i < 3;i++)
+        document.getElementById("row2").removeChild(document.getElementById("row2").children[0]);
+
+    if(document.getElementById("row3")) {
+        for(var i = 0;i < 8;i++)
+            document.getElementById("row3").removeChild(document.getElementById("row3").children[0]);
+    }
+
+    if(document.getElementById("row4")) {
+        for(var i = 0;i < 9;i++)
+            document.getElementById("row4").removeChild(document.getElementById("row4").children[0]);
+    }
 }
 function RemoveAllMatches(){
     document.getElementById("row1").removeChild(document.getElementById("row1").children[0]);
@@ -279,3 +310,58 @@ function GetMatchCount() {
             (document.getElementById("row3").children.length - 1) +
             (document.getElementById("row4").children.length - 1);
 }
+function Reset(){
+    gameIsOver = false;
+    isPlayer1Turn = true;
+    isPlayerVsComputer = true;
+    player1Name = "Player 1";
+    player2Name = "Player 2";
+    currentColumn = -1;
+
+    document.getElementById('btnEndTurn').style.display = "none";
+    document.getElementById('btnRow1').disabled = false;
+    document.getElementById('btnRow2').disabled = false;
+    document.getElementById('btnRow3').disabled = false;
+    document.getElementById('btnRow4').disabled = false;
+    var invalid = true;
+    while(invalid){
+        if(document.getElementById("row1").children.length == 3){
+            invalid = false;
+        } else {
+            var newMatch = document.createElement('div');
+            newMatch.className = "match";
+            document.getElementById("row1").insertBefore(newMatch,document.getElementById("row1").children[0]);
+        }
+    }
+    invalid = true;
+    while(invalid){
+        if(document.getElementById("row2").children.length == 4){
+            invalid = false;
+        } else {
+            var newMatch = document.createElement('div');
+            newMatch.className = "match";
+            document.getElementById("row2").insertBefore(newMatch,document.getElementById("row2").children[0]);
+        }
+    }
+    invalid = true;
+    while(invalid){
+        if(document.getElementById("row3").children.length == 9){
+            invalid = false;
+        } else {
+            var newMatch = document.createElement('div');
+            newMatch.className = "match";
+            document.getElementById("row3").insertBefore(newMatch,document.getElementById("row3").children[0]);
+        }
+    }
+    invalid = true;
+    while(invalid){
+        if(document.getElementById("row4").children.length == 10){
+            invalid = false;
+        } else {
+            var newMatch = document.createElement('div');
+            newMatch.className = "match";
+            document.getElementById("row4").insertBefore(newMatch,document.getElementById("row4").children[0]);
+        }
+    }
+}
+Reset();
