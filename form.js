@@ -11,6 +11,9 @@ function gameTypeChosen() {
 		//console.log("hidden");
 	};
 	document.getElementById("player2").style.display = "none";
+	if(document.getElementById("gameType_PvP").checked){
+	document.getElementById("player2").style.display = "block";
+	}
 }
 //variables
 var name1, name2, isPvP, linkS;

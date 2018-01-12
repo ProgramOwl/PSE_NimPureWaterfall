@@ -8,7 +8,7 @@
 
 <body>
   <div id='mainPanel'>
-    <div id='gamePanel'>
+    <div id='easyGamePanel'  class='panel'>
       <div id='turnDisplay'>
         <label id='lblTurn'>Player turn here...</label>
       </div>
@@ -18,27 +18,40 @@
             <div class='match'></div>
             <div class='match'></div>
             <div class='match'></div>
+			<div class='btnContainer'>
+              <button id='btnRow1' onclick="RowOnePressed()">Row 1</button>
+            </div>
           </div>
+			
           <div id='row2' class='row'>
             <div class='match'></div>
             <div class='match'></div>
             <div class='match'></div>
-          </div>
-        </div>
-        <div id='buttons'>
-          <div id='rowButtons'>
-            <div class='btnContainer'>
-              <button id='btnRow1' onclick="RowOnePressed()">Row 1</button>
-            </div>
             <div class='btnContainer'>
               <button id='btnRow2' onclick="RowTwoPressed()">Row 2</button>
             </div>
           </div>
-          <button id='btnEndTurn' onclick="EndTurnPressed()">End turn</button>
         </div>
+		</div>
+		<div class="turnEndDiv">
+          <button id='btnEndTurn' onclick="EndTurnPressed()">End turn</button>
+		</div>
       </div>
     </div>
+    <button id="Infobtn" type="button" onclick="instructions_clicked()"><p>?</p></button>	
+	<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="instructions">
+	  <div class="topBar">
+		  <h3>How to Play</h3>
+		  <span class="close">&times;</span>
+	  </div>
+	  <div class="content">
+		  <p id="infoModal"></p>
+	  </div>
   </div>
-  <script src='main.js'></script>
+</div>
+  <script src='main.js'></script> 
+        <script src='instructions.js'></script> 
 </body>
 </html>

@@ -2,27 +2,46 @@
 <html>
 <head>
 	<link href='style.css' rel='stylesheet'/>
+	
+  <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
 </head>
 	<body>
-  <h1>Welcome to the Game of Nim</h1>
+		<div id='mainPanel'>
+    <div class='panel' id="indexPanel">
+      <div id='homeTitleBar'>
+		  <h1>Welcome to the Game of Nim</h1>
+		</div>
   <form name="myForm" onsubmit="return onSubmit()">
     <div id="gameType_Selection">
-		  <p><input type="radio" name="gameType" id="gameType_PvP" value="PvP"/> PvP</p>
-		  <p><input type="radio" name="gameType" id="gameType_PvC" value="PvC" checked/> PvC</p>
+		<p><input type="radio" name="gameType" id="gameType_PvP" value="PvP"/> PvP</p>
+		<p><input type="radio" name="gameType" id="gameType_PvC" value="PvC" checked/> PvC</p>
     </div>
-    <p>Player 1 Name: <input type="text" placeholder="Player 1" id="player1Name"/></p>
-    <p id="player2">Player 2 Name: <input type="text" placeholder="Player 2" id="player2Name"/></p>
+    <p>Player 1: <input type="text" placeholder="Player 1" id="player1Name"/></p>
+    <p id="player2">Player 2: <input type="text" placeholder="Player 2" id="player2Name"/></p>
     <p>Difficulty: <select id="categories">
         <option value="Easy">Easy</option>
         <option value="Medium">Medium</option>
         <option value="Hard">Hard</option>
       </select>
     </p>
-    <input type="submit" value="submit"/>
+    <input type="submit" value="Start Game" class="btn"/>
   </form>
-  <div>
-    <button type="button" onclick="instructions_clicked()">?</button>
-  </div>		
+			</div>
+		</div>
+    <button id="Infobtn" type="button" onclick="instructions_clicked()"><p>?</p></button>	
+
+<div id="myModal" class="modal">
+  <!-- Modal content -->
+  <div class="instructions">
+	  <div class="topBar">
+		  <h3>How to Play</h3>
+		  <span class="close">&times;</span>
+	  </div>
+	  <div class="content">
+		  <p id="infoModal"></p>
+	  </div>
+  </div>
+</div>
         <script src='form.js'></script> 
         <script src='instructions.js'></script> 
 	</body>
