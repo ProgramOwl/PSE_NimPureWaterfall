@@ -82,7 +82,7 @@ function RowFourPressed(){
     }
 }
 
-function EndTurnPressed(){;
+function EndTurnPressed(){
 		isPlayer1Turn = !isPlayer1Turn;
 	document.getElementById('btnEndTurn').style.display = "none";
     //if(!CheckGameOver()){
@@ -100,7 +100,8 @@ function EndTurnPressed(){;
 		}        
         currentColumn = -1;
         
-
+		if(isPlayer1Turn){
+			document.getElementById('lblTurn').innerHTML = player1Name + "'s Turn";
 		}
 		else{
 			document.getElementById('lblTurn').innerHTML = player2Name + "'s Turn";
@@ -125,8 +126,9 @@ function TakeComputerTurn(){
         	row.removeChild(row.children[0]);
 		}
     }
-	CheckGameOver();
+	if(!CheckGameOver()){
 	EndTurnPressed();
+	}
 }
 
 function FindRandomValidRow(){
