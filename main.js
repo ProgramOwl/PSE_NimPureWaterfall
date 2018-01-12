@@ -11,12 +11,14 @@ function RowOnePressed(){
         currentColumn = 1;
 		document.getElementById('btnEndTurn').style.display = "block";
         document.getElementById('btnRow2').disabled = true;
+
         if(document.getElementById('btnRow3')){
 			document.getElementById('btnRow3').disabled = true;}
         if(document.getElementById('btnRow4')){
 			document.getElementById('btnRow4').disabled = true;}
         document.getElementById('btnEndTurn').disabled = false; 
         var matches = GetMatches(1);
+
         if(matches.children.length > 1) {
             matches.removeChild(matches.children[0]);
         }
@@ -29,12 +31,14 @@ function RowTwoPressed(){
         currentColumn = 2;
 		document.getElementById('btnEndTurn').style.display = "block";
         document.getElementById('btnRow1').disabled = true;
+
         if(document.getElementById('btnRow3')){
 			document.getElementById('btnRow3').disabled = true;}
         if(document.getElementById('btnRow4')){
 			document.getElementById('btnRow4').disabled = true;}
         document.getElementById('btnEndTurn').disabled = false; 
         var matches = GetMatches(2);
+
         if(matches.children.length > 1) {
             matches.removeChild(matches.children[0]);
         }
@@ -48,10 +52,12 @@ function RowThreePressed(){
 		document.getElementById('btnEndTurn').style.display = "block";
         document.getElementById('btnRow2').disabled = true;
         document.getElementById('btnRow1').disabled = true;
+
         if(document.getElementById('btnRow4')){
 			document.getElementById('btnRow4').disabled = true;}
         document.getElementById('btnEndTurn').disabled = false; 
         var matches = GetMatches(3);
+
         if(matches.children.length > 1) {
             matches.removeChild(matches.children[0]);
         }
@@ -68,6 +74,7 @@ function RowFourPressed(){
         document.getElementById('btnRow1').disabled = true;
         document.getElementById('btnEndTurn').disabled = false; 
         var matches = GetMatches(4);
+
         if(matches.children.length > 1) {
             matches.removeChild(matches.children[0]);
         }
@@ -75,13 +82,14 @@ function RowFourPressed(){
     }
 }
 
-function EndTurnPressed(){
+function EndTurnPressed(){;
 		isPlayer1Turn = !isPlayer1Turn;
 	document.getElementById('btnEndTurn').style.display = "none";
     //if(!CheckGameOver()){
         console.log("ispvc: ",isPlayerVsComputer);
 		console.log("isPlayer1Turn: ",isPlayer1Turn);
         document.getElementById('btnEndTurn').disabled = true;
+        
         document.getElementById('btnRow1').disabled = GetMatches(1).children.length > 1 ? false : true;
         document.getElementById('btnRow2').disabled = GetMatches(2).children.length > 1 ? false : true;
         if(document.getElementById('btnRow3')){
@@ -91,8 +99,8 @@ function EndTurnPressed(){
 			document.getElementById('btnRow4').disabled = GetMatches(4).children.length > 1 ? false : true;
 		}        
         currentColumn = -1;
-		if(isPlayer1Turn){
-			document.getElementById('lblTurn').innerHTML = player1Name + "'s Turn";
+        
+
 		}
 		else{
 			document.getElementById('lblTurn').innerHTML = player2Name + "'s Turn";
