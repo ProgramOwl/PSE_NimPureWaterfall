@@ -208,6 +208,7 @@ input[type='radio']:checked:after {
 
 /* Modal Content/Box */
 .instructions {
+	min-width: 200px;
 	padding: 0;
 	color:var(--white);
     background-color: var(--gray);
@@ -215,27 +216,35 @@ input[type='radio']:checked:after {
     border: 1px solid var(--blue);
     width: 80%; /* Could be more or less, depending on screen size */
 }
+.content{
+	min-width: 200px;
+    background-color: var(--seeblue);
+	padding: 0 10px;
+	padding-top: 50px;
+	padding-bottom: 1px;
+	margin-bottom: -1px;
+}
 .topBar{
+	min-width: 200px;
+	width: inherit;
+	position: fixed;
 	background-color: black;
 	height: 50px;
 	margin-top: 0;
 	padding-top: 1px;
 	padding-bottom: 5px;
 }
-.topBar>span{
+.topBar h3{
 	position: relative;
-	top: -10px;
+	top: -5px;
 }
-.content{
-    background-color: var(--seeblue);
-	padding: 0;	
-}
-
 /* The Close Button */
 .close {
 	display: inline;
     color: var(--lightgray);
-    
+    position: absolute;
+	top:10px;
+	right:10px;
     font-size: 28px;
     font-weight: bold;
 	padding: 0;
@@ -243,7 +252,7 @@ input[type='radio']:checked:after {
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: red;
     text-decoration: none;
     cursor: pointer;
 }
