@@ -17,13 +17,17 @@
           <div id='row1' class='row'>
             <div class='match'></div>
             <div class='match'></div>
+			<div class='btnContainer'>
+              <button id='btnRow1' onclick="RowOnePressed()">Row 1</button>
+            </div>
           </div>
           <div id='row2' class='row'>
             <div class='match'></div>
             <div class='match'></div>
             <div class='match'></div>
-            <div class='match'></div>
-            <div class='match'></div>
+            <div class='btnContainer'>
+              <button id='btnRow2' onclick="RowTwoPressed()">Row 2</button>
+            </div>
           </div>
           <div id='row3' class='row'>
             <div class='match'></div>
@@ -33,6 +37,10 @@
             <div class='match'></div>
             <div class='match'></div>
             <div class='match'></div>
+            <div class='match'></div>
+            <div class='btnContainer'>
+              <button id='btnRow3' onclick="RowThreePressed()">Row 3</button>
+            </div>
           </div>
           <div id='row4' class='row'>
             <div class='match'></div>
@@ -44,29 +52,20 @@
             <div class='match'></div>
             <div class='match'></div>
             <div class='match'></div>
-          </div>
-        </div>
-        <div id='buttons'>
-          <div id='rowButtons'>
-            <div class='btnContainer'>
-              <button id='btnRow1' onclick="RowOnePressed()">Row 1</button>
-            </div>
-            <div class='btnContainer'>
-              <button id='btnRow2' onclick="RowTwoPressed()">Row 2</button>
-            </div>
-            <div class='btnContainer'>
-              <button id='btnRow3' onclick="RowThreePressed()">Row 3</button>
-            </div>
             <div class='btnContainer'>
               <button id='btnRow4' onclick="RowFourPressed()">Row 4</button>
             </div>
           </div>
-          <button id='btnEndTurn' onclick="EndTurnPressed()">End turn</button>
         </div>
+          <div class="turnEndDiv">
+          <button id='btnEndTurn' onclick="EndTurnPressed()">End turn</button>
+		</div>
       </div>
     </div>
   </div>
-  <script src='main.js'></script>
+    <button id="Infobtn" type="button" onclick="instructions_clicked()"><p>?</p></button>	
+  <script src='main.js'></script> 
+        <script src='instructions.js'></script> 
 </body>
 
 </html>
